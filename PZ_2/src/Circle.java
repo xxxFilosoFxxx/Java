@@ -17,19 +17,11 @@ public class Circle implements IDrawable {
         return this.point + ", радиус: " + this.radius;
     }
 
-    public boolean equals(Object obj) {
-        if (this == obj)
+    public boolean equals(Circle c) {
+        if(c.point == point && c.radius == radius)
             return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Circle other = (Circle) obj;
-        if (point != other.point)
-            return false;
-        if (radius != other.radius)
-            return false;
-        return true;
+        return false;
+
     }
 
     public double square()

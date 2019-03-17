@@ -19,24 +19,12 @@ public class Point implements IDrawable {
 
     }
 
-   /* public boolean equals(Object obj)
-    {
-        return (this == obj);
-    }*/
 
-    public boolean equals(Object obj) {
-        if (this == obj)
+    public boolean equals(Point p) {
+        if(p.x == x && p.y == y)
             return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Point other = (Point) obj;
-        if (x != other.x)
-            return false;
-        if (y != other.y)
-            return false;
-        return true;
+        return false;
+
     }
 
     @Override

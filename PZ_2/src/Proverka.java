@@ -1,7 +1,7 @@
 public class Proverka {
     public static void main (String[] args)
     {
-     /*   Point p1 = new Point(2,5);
+    /*    Point p1 = new Point(2,5);
         Point p2 = new Point(2,5);
         Point p3 = new Point(10,15);
 
@@ -9,8 +9,9 @@ public class Proverka {
         System.out.println(p1.toString());
         System.out.println(p1.equals(p2));
         p3 = p1;
-        System.out.println(p1.equals(p3));*/
+        System.out.println(p1.equals(p3));
 
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"); */
 
         Point p4 = new Point(1,2);
         Point p5 = new Point(1.4,2.1);
@@ -37,12 +38,11 @@ public class Proverka {
         proba[3] = c1;
         proba[4] = c2;
         proba[5] = c3;
-        proba[0].draw();
-        proba[1].draw();
-        proba[2].draw();
-        proba[3].draw();
-        proba[4].draw();
-        proba[5].draw();
+        for(int i = 0; i<6; i++)
+        {
+            proba[i].draw();
+        }
+
 
     }
 }

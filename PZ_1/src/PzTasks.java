@@ -60,8 +60,8 @@ public class PzTasks {
         in.close();
     }
     public void Task5() {
-        double[] a = {Math.pow(10,20), 1223, Math.pow(10,18), Math.pow(10,15), 3, Math.pow(-10,12)};
-        double[] b = {Math.pow(10,20), 2, Math.pow(-10,22), Math.pow(10,13), 2111, Math.pow(10,16)};
+        double[] a = {Math.pow(10,20), 1223, Math.pow(10,18), Math.pow(10,15), 3, -Math.pow(10,12)};
+        double[] b = {Math.pow(10,20), 2, -Math.pow(10,22), Math.pow(10,13), 2111, Math.pow(10,16)};
         double sum = 0;
         for (int i = 0; i < 6; i++) {
             sum += a[i]*b[i];
