@@ -1,4 +1,4 @@
-public class Point implements IDrawable {
+public class Point {
     double x, y;
 
     public Point()
@@ -13,7 +13,7 @@ public class Point implements IDrawable {
         this.y = b;
     }
 
-    public String toString()
+    /*public String toString()
     {
         return "Координата x: " + this.x + ", координата y: " + this.y;
 
@@ -25,14 +25,6 @@ public class Point implements IDrawable {
             return true;
         return false;
 
-    }
-    //TODO Изменить метод equal и to_string
-    //TODO (сделать их @override и для общего случая, через Object&)
-
-
-    @Override
-    public void draw() {
-        System.out.println("Класс точки и его координты x, y:" + this.x + ", " + this.y);
-    }
+    }*/
 }
 

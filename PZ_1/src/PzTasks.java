@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
+import java.math.*;
 
 public class PzTasks {
     public void Task1() {
@@ -60,13 +61,14 @@ public class PzTasks {
         in.close();
     }
     public void Task5() {
-        double[] a = {Math.pow(10,20), 1223, Math.pow(10,18), Math.pow(10,15), 3, -Math.pow(10,12)};
-        double[] b = {Math.pow(10,20), 2, -Math.pow(10,22), Math.pow(10,13), 2111, Math.pow(10,16)};
-        double sum = 0;
-        for (int i = 0; i < 6; i++) {
-            sum += a[i]*b[i];
+        BigDecimal[] a = {new BigDecimal(Math.pow(10,20)),new BigDecimal("1223"),new BigDecimal(Math.pow(10,18)),new BigDecimal(Math.pow(10,15)),new BigDecimal("3"),new BigDecimal(-Math.pow(10,12))};
+        BigDecimal[] b = {new BigDecimal(Math.pow(10,20)),new BigDecimal("2"),new BigDecimal(-Math.pow(10,22)),new BigDecimal(Math.pow(10,13)),new BigDecimal("2111"),new BigDecimal(Math.pow(10,16))};
+        BigDecimal sum = new BigDecimal("0.0");
+        for (int i = 0; i < a.length; i++) {
+            sum = sum.add(a[i].multiply(b[i]));
         }
         System.out.println(sum);
     }
 
 }
+

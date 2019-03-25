@@ -1,4 +1,4 @@
-public class Circle implements IDrawable {
+public class Circle {
     double radius;
     private Point point;
 
@@ -12,7 +12,7 @@ public class Circle implements IDrawable {
         radius = r;
     }
 
-    public String toString()
+   /* public String toString()
     {
         return this.point + ", радиус: " + this.radius;
     }
@@ -22,18 +22,11 @@ public class Circle implements IDrawable {
             return true;
         return false;
 
-    }
-    //TODO Изменить метод equal и to_string
-    //TODO (сделать их @override и для общего случая, через Object&)
-
+    }*/
 
     public double square()
     {
         return Math.PI * radius * radius;
     }
 
-    @Override
-    public void draw() {
-        System.out.println("Класс окружности и его свойства: " + this.point + ", радиус: " + this.radius);
-    }
 }
