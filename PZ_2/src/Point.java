@@ -13,26 +13,34 @@ public class Point implements IDrawable {
         this.y = b;
     }
 
+    @Override
     public String toString()
     {
         return "Координата x: " + this.x + ", координата y: " + this.y;
+      //  return String.format("Координата x: " + this.x + ", координата y: " + this.y);
 
     }
 
-
-    public boolean equals(Point p) {
-        if(p.x == x && p.y == y)
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
             return true;
-        return false;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Point other = (Point) obj;
+        if (x != other.x)
+            return false;
+        if (y != other.y)
+            return false;
+        return true;
 
     }
-    //TODO Изменить метод equal и to_string
-    //TODO (сделать их @override и для общего случая, через Object&)
-
 
     @Override
     public void draw() {
-        System.out.println("Класс точки и его координты x, y:" + this.x + ", " + this.y);
+        System.out.println("Координата x: " + this.x + ", координата y: " + this.y);
     }
 }
 

@@ -12,20 +12,28 @@ public class Circle implements IDrawable {
         radius = r;
     }
 
+    @Override
     public String toString()
     {
-        return this.point + ", радиус: " + this.radius;
+        return "Класс окружности и его свойства: " + this.point + ", радиус: " + this.radius;
     }
 
-    public boolean equals(Circle c) {
-        if(c.point == point && c.radius == radius)
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
             return true;
-        return false;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Circle other = (Circle) obj;
+        if (point != other.point)
+            return false;
+        if (radius != other.radius)
+            return false;
+        return true;
 
     }
-    //TODO Изменить метод equal и to_string
-    //TODO (сделать их @override и для общего случая, через Object&)
-
 
     public double square()
     {
