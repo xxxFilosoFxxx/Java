@@ -1,25 +1,41 @@
 import java.util.*;
 
 public class Point {
-    public double x, y;
-    public static int size;
+    private double x, y;
+    private List<Point> list_Point = new ArrayList<>();
     Scanner in = new Scanner(System.in);
+    public Point()
+    {
+        this.x = 0;
+        this.y = 0;
+    }
 
-    public static ArrayList<Double> List_X_Point = new ArrayList<>();
-    public static ArrayList<Double> List_Y_Point = new ArrayList<>();
-    public static ArrayList<Double> List_Point = new ArrayList<>();
+    public Point(double a, double b)
+    {
+        this.x = a;
+        this.y = b;
+    }
+
+    public double getX()
+    {
+        return this.x;
+    }
+
+    public double getY()
+    {
+        return this.y;
+    }
 
     public void add_point() {
         System.out.println("Введите количество элементов: ");
-        size = in.nextInt();
+        int size = in.nextInt();
         System.out.println("Введите координаты x, y:");
         for (int i = 0; i < size; i++) {
             x = in.nextDouble();
             y = in.nextDouble();
-            List_X_Point.add(x);
-            List_Y_Point.add(y);
-            List_Point.add(x);
-            List_Point.add(y);
+            Point p = new Point(x, y);
+            list_Point.add(p);
+
         }
         System.out.println("Значения добавлены в список!");
     }
@@ -27,75 +43,40 @@ public class Point {
     public void get_point(){
 
         System.out.println("Вывод значений: ");
-        int j = 0;
-        for (int i=0; i < List_Point.size(); i += 2)
+        for (int i=0; i < list_Point.size(); i++)
         {
-            if((i+1)<List_Point.size()) {
-
-                System.out.println(j + ")  x: " + List_Point.get(i) + "  y: " + List_Point.get(i + 1));
-                j++;
-            }
+                System.out.println(i + ")  x, y: (" + list_Point.get(i) + ")");
         }
-
     }
 
     public void remove(){
-        System.out.println("Введите индекс элемента, который хотите удалить: ");
-        int value = in.nextInt();
-        if (value < size) {
-            List_X_Point.remove(value);
-            List_Y_Point.remove(value);
-        }
-        else{
-            System.out.println("Элемента с таким индексом нет!");
-        }
+        System.out.println("Введите значения, которые хотите удалить: ");
+        x = in.nextDouble();
+        y = in.nextDouble();
+        list_Point.removeIf((Point a) -> {
+            return a.getX() == x && a.getY() == y;
+        });
 
         System.out.println("Элементы после удаления: ");
-
-        for (int i=0; i < List_X_Point.size(); i++)
-        {
-            System.out.println(i + ")  x: " + List_X_Point.get(i) + "  y: " + List_Y_Point.get(i) );
-        }
-    }
-
-    public void get_point_max() {
-        for (int i = List_Point.size() - 1 ; i > 0; i-=2) {
-            for (int j = 0; j < i; j+=2) {
-                if(j+2 < List_Point.size()) {
-                    if (List_Point.get(j) > List_Point.get(j + 2)) {
-                        smena(j);
-                    }
-                }
-            }
-        }
-
         get_point();
     }
-    public void get_point_min() {
-        for (int i = List_Point.size() - 1 ; i > 0; i-=2) {
-            for (int j = 0; j < i; j+=2) {
-                if(j+2 < List_Point.size()) {
-                    if (List_Point.get(j) < List_Point.get(j + 2)) {
-                        smena(j);
-                    }
-                }
+
+
+    public void get_point_max() {
+        System.out.println("Список точек в порадяке возрастания по X: ");
+        list_Point.sort(new Comparator<Point>() {
+            @Override
+            public int compare(Point o1, Point o2) {
+                return (int) o1.getX() - (int) o2.getX();
             }
-        }
+        });
 
-       get_point();
     }
 
-    public void smena(int j) {
-        double tmp = List_Point.get(j);
-        double tpp = List_Point.get(j + 2);
-        List_Point.set(j, tpp);
-        List_Point.set(j + 2, tmp);
-        double tmpp = List_Point.get(j+1);
-        double tppp = List_Point.get(j +3);
-        List_Point.set(j+1, tppp);
-        List_Point.set(j + 3, tmpp);
+    public void get_point_min() {
+        System.out.println("Список точек в порадяке убывания по X: ");
+        get_point_max();
+        Collections.reverse(list_Point);
     }
-
-
 }
 

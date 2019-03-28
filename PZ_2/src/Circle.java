@@ -24,7 +24,7 @@ public class Circle implements IDrawable {
             return true;
         if (obj == null)
             return false;
-        if (getClass() != obj.getClass())
+        if (obj instanceof Circle)
             return false;
         Circle other = (Circle) obj;
         if (point != other.point)

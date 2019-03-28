@@ -1,14 +1,9 @@
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class Menu {
-    public static Point p = new Point();
-    public static Circle c = new Circle();
-    public static Scanner input;
-
     public static int menuPrint() {
-        input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         int choice;
 
         System.out.println("                    ~~~~~~~~~МЕНЮ~~~~~~~~~");
@@ -29,8 +24,10 @@ public class Menu {
         return choice;
     }
 
-    public static void menuChoice() throws IOException {
+    public void menuChoice() throws IOException {
 
+        Point p = new Point();
+        Circle c = new Circle();
         int choice;
         do
         {
@@ -41,34 +38,36 @@ public class Menu {
                     p.add_point();
                     break;
                 case 2:
-                    c.add_circle();
+               //     c.add_circle();
                     break;
                 case 3:
                     p.remove();
                     break;
                 case 4:
-                    c.remove();
+               //     c.remove();
                     break;
                 case 5:
                     p.get_point();
                     break;
                 case 6:
-                    c.get_circle();
+               //     c.get_circle();
                     break;
                 case 7:
                     p.get_point_max();
+                    p.get_point();
                     break;
                 case 8:
-                    c.get_circle_max();
+                //    c.get_circle_max();
                     break;
                 case 9:
                     p.get_point_min();
+                    p.get_point();
                     break;
                 case 10:
-                    c.get_circle_min();
+               //     c.get_circle_min();
                     break;
                 case 11:
-                    c.check();
+               //     c.check();
                     break;
                 default: throw new IOException();
             }
@@ -78,7 +77,8 @@ public class Menu {
     public static void main(String[] args) throws IOException {
 
         try {
-            Menu.menuChoice();
+            Menu menu = new Menu();
+            menu.menuChoice();
         }
         catch (IOException io)
         {

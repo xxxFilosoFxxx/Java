@@ -27,7 +27,7 @@ public class Point implements IDrawable {
             return true;
         if (obj == null)
             return false;
-        if (getClass() != obj.getClass())
+        if (obj instanceof Point)
             return false;
         Point other = (Point) obj;
         if (x != other.x)
