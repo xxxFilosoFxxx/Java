@@ -24,7 +24,7 @@ public class Menu {
         return choice;
     }
 
-    public void menuChoice() throws IOException {
+    public void menuChoice() {
 
         Point p = new Point();
         Circle c = new Circle();
@@ -38,52 +38,48 @@ public class Menu {
                     p.add_point();
                     break;
                 case 2:
-               //     c.add_circle();
+                    c.add_circle();
                     break;
                 case 3:
                     p.remove();
                     break;
                 case 4:
-               //     c.remove();
+                    c.remove();
                     break;
                 case 5:
                     p.get_point();
                     break;
                 case 6:
-               //     c.get_circle();
+                    c.get_circle();
                     break;
                 case 7:
                     p.get_point_max();
                     p.get_point();
                     break;
                 case 8:
-                //    c.get_circle_max();
+                    c.get_circle_max();
+                    c.get_circle();
                     break;
                 case 9:
                     p.get_point_min();
                     p.get_point();
                     break;
                 case 10:
-               //     c.get_circle_min();
+                    c.get_circle_min();
+                    c.get_circle();
                     break;
                 case 11:
-               //     c.check();
+                    c.check();
                     break;
-                default: throw new IOException();
+                default:
+                    break;
             }
         }while(choice != 0);
     }
 
-    public static void main(String[] args) throws IOException {
-
-        try {
-            Menu menu = new Menu();
-            menu.menuChoice();
-        }
-        catch (IOException io)
-        {
-            System.out.println(" Неверный выбор пункта меню!");
-        }
+    public static void main(String[] args) {
+        Menu menu = new Menu();
+        menu.menuChoice();
     }
 
 }

@@ -26,6 +26,12 @@ public class Point {
         return this.y;
     }
 
+
+    @Override
+    public String toString() {
+        return "x:\t" + this.x + "\ty:\t" + this.y + " ";
+    }
+
     public void add_point() {
         System.out.println("Введите количество элементов: ");
         int size = in.nextInt();
@@ -43,9 +49,9 @@ public class Point {
     public void get_point(){
 
         System.out.println("Вывод значений: ");
-        for (int i=0; i < list_Point.size(); i++)
+        for (Point p:list_Point)
         {
-                System.out.println(i + ")  x, y: (" + list_Point.get(i) + ")");
+            System.out.println(p);
         }
     }
 
