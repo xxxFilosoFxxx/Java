@@ -1,4 +1,5 @@
 package battleship;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -37,4 +38,43 @@ public class Ships {
         }
         return false;
     }
+
+    boolean checkHit(int x, int y)
+    {
+        for (Ship ship : ships)
+        {
+            if (ship.checkHit(x, y))
+                return true;
+        }
+        return false;
+    }
+
+    boolean checkLive()
+    {
+        for (Ship ship : ships)
+        {
+            if (ship.live())
+                return true;
+        }
+        return false;
+    }
+
+    boolean checkKill()
+    {
+        for (Ship ship : ships)
+        {
+            if (ship.checkKill())
+                return true;
+        }
+        return false;
+    }
+
+    void paint(Graphics g)
+    {
+        for (Ship ship : ships)
+        {
+            ship.paint(g,CELL_SIZE,hide);
+        }
+    }
+
 }
