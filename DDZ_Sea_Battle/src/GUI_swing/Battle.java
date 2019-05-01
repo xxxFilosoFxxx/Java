@@ -1,7 +1,13 @@
 package GUI_swing;
 import battleship.*;
+
 import java.awt.*;
+import java.awt.event.*;
+
 import javax.swing.*;
+import javax.swing.border.*;
+import javax.swing.event.MouseInputAdapter;
+
 import java.util.*;
 
 
@@ -9,7 +15,7 @@ public class Battle extends JFrame {
     final int WINDOW_SIZE = 500;
     final int CELL_SIZE = WINDOW_SIZE/10;
 
-    //JTextArea
+ //   JTextArea board;
     Canvas field; //поле
     Ships ships; // корабли
     Shots shots; // выстрелы
@@ -25,14 +31,31 @@ public class Battle extends JFrame {
     {
         setTitle("Game BattleShip");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setResizable(true);
+        setResizable(false);
         //setVisible(true);
 
         field = new Canvas();
         field.setPreferredSize(new Dimension(WINDOW_SIZE,WINDOW_SIZE));
         field.setBackground(Color.white);
 
-        // TODO
+      //  Border lineBorder = BorderFactory.createLineBorder(Color.blue);
+      //  field.setBorder(lineBorder);
+        field.addMouseListener(new MouseInputAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                super.mouseReleased(e);
+                int x = e.getX()/CELL_SIZE;
+                int y = e.getY()/CELL_SIZE;
+
+                if (e.getButton() == MouseEvent.BUTTON1 && gameOver)
+                {
+
+                }
+                // TODO
+            }
+        });
+
+
     }
 
 }

@@ -19,7 +19,7 @@ public class Cell {
     {
         if (this.x == x && this.y == y )
         {
-            color = Color.yellow; //TODO yellow
+            color = Color.yellow; //TODO red or yellow
             return true;
         }
         return false;
