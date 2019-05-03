@@ -17,7 +17,7 @@ public class Ship {
     {
         for(Cell cell : cells)
         {
-            if ((cell.getX() < bottom || cell.getX() > top) && (cell.getY() < bottom || cell.getY() > top))
+            if ((cell.getX() < bottom || cell.getX() > top) || (cell.getY() < bottom || cell.getY() > top))
             {
                 return true;
             }

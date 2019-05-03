@@ -10,7 +10,7 @@ public class Ships {
     private Random random;
     private boolean hide;
 
-    Ships(int fieldSize, int cellSize, boolean hide)
+    public Ships(int fieldSize, int cellSize, boolean hide)
     {
         random = new Random();
         for (int i = 0; i < DECKS.length; i++)
@@ -39,7 +39,7 @@ public class Ships {
         return false;
     }
 
-    boolean checkHit(int x, int y)
+    public boolean checkHit(int x, int y)
     {
         for (Ship ship : ships)
         {
@@ -49,7 +49,7 @@ public class Ships {
         return false;
     }
 
-    boolean checkLive()
+    public boolean checkLive()
     {
         for (Ship ship : ships)
         {
@@ -59,7 +59,7 @@ public class Ships {
         return false;
     }
 
-    boolean checkKill()
+    public boolean checkKill()
     {
         for (Ship ship : ships)
         {
@@ -69,7 +69,7 @@ public class Ships {
         return false;
     }
 
-    void paint(Graphics g)
+    public void paint(Graphics g)
     {
         for (Ship ship : ships)
         {
