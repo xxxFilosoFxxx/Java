@@ -5,13 +5,13 @@ import java.util.Random;
 
 public class Ships {
     private final int CELL_SIZE;
-    private ArrayList<Ship> ships = new ArrayList<>();
+    private ArrayList<Ship> ships;
     private final int[] DECKS = {4,3,3,2,2,2,1,1,1,1};
     private Random random;
-    private boolean hide;
 
-    public Ships(int fieldSize, int cellSize, boolean hide)
+    public Ships(int fieldSize, int cellSize)
     {
+        ships = new ArrayList<>();
         random = new Random();
         for (int i = 0; i < DECKS.length; i++)
         {
@@ -24,9 +24,9 @@ public class Ships {
                 ship = new Ship(x, y, DECKS[i], location);
 
             }while (ship.outOfField(0, fieldSize - 1)  || contact(ship));
+            ships.add(ship);
         }
         CELL_SIZE = cellSize;
-        this.hide = hide;
     }
 
     boolean contact(Ship sh)
@@ -59,21 +59,11 @@ public class Ships {
         return false;
     }
 
-    public boolean checkKill()
-    {
-        for (Ship ship : ships)
-        {
-            if (ship.checkKill())
-                return true;
-        }
-        return false;
-    }
-
     public void paint(Graphics g)
     {
         for (Ship ship : ships)
         {
-            ship.paint(g,CELL_SIZE,hide);
+            ship.paint(g,CELL_SIZE);
         }
     }
 

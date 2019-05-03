@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Cell {
     private int x, y;
-    private Color color;
+    public Color color;
 
     Cell(int x, int y)
     {
@@ -19,7 +19,7 @@ public class Cell {
     {
         if (this.x == x && this.y == y )
         {
-            color = Color.yellow; //TODO red or yellow
+            color = Color.red; //TODO red or yellow
             return true;
         }
         return false;
@@ -27,22 +27,21 @@ public class Cell {
 
     boolean live() // понадобиться далее
     {
-        return color != Color.yellow || color != Color.red;
+        return color != Color.red;
     }
 
     boolean checkKill() // понадобиться далее
     {
-        if (this.color == Color.yellow)
+        if (this.color == Color.red)
         {
-            color = Color.red;
             return true;
         }
         return false;
     }
 
-    void paint(Graphics g, int cellSize, boolean hide)  // скрывает корабли для человека
+    void paint(Graphics g, int cellSize)  // скрывает корабли для человека
     {
-        if (!hide || color == Color.red || color == Color.yellow)
+        if (color == Color.red)
         {
             g.setColor(color);
             g.fill3DRect(x*cellSize + 1, y*cellSize + 1, cellSize - 2, cellSize -2, true);

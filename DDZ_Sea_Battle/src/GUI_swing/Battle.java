@@ -55,14 +55,11 @@ public class Battle extends JFrame {
                         shots.add(x,y,true);
                         if (ships.checkHit(x,y))
                         {
+                            board.append("\nYou Hit");
                             if (!ships.checkLive()) {
-                                board.append("You Won\n");
+                                board.append("\nYou Won");
                                 gameOver = true;
                             }
-                        }
-                        if (ships.checkKill())
-                        {
-                            board.append("Ship dead\n");
                         }
 
                         field.repaint();
@@ -123,11 +120,11 @@ public class Battle extends JFrame {
 
     void start()
     {
-        ships = new Ships(10, CELL_SIZE, true);
+        random = new Random();
+        ships = new Ships(10, CELL_SIZE);
         shots = new Shots(CELL_SIZE);
         board.setText("New Game");
         gameOver = false;
-        random = new Random();
     }
 
     class Canvas extends JPanel
@@ -143,10 +140,11 @@ public class Battle extends JFrame {
                 g.drawLine(0, i*cellSize, 10 * cellSize, i*cellSize );
                 g.drawLine(i*cellSize, 0, i*cellSize, 10*cellSize);
             }
-
-
+            if (cellSize == CELL_SIZE)
+            {
                 shots.paint(g);
                 ships.paint(g);
+            }
         }
     }
 

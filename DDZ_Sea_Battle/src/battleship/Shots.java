@@ -8,7 +8,7 @@ public class Shots {
 
     public Shots(int cellSize)
     {
-        shots = new ArrayList<>();
+        shots = new ArrayList<Shot>();
         CELL_SIZE = cellSize;
     }
 

@@ -3,19 +3,20 @@ import java.util.ArrayList;
 import java.awt.*;
 
 public class Ship {
-    private ArrayList<Cell> cells = new ArrayList<>();
+    private ArrayList<Cell> ship;
 
     Ship(int x, int y, int lenght, int location)  // location - положение корабля(направление)
     {
+        ship = new ArrayList<>();
         for (int i = 0; i < lenght; i++)
         {
-            cells.add( new Cell(x + i*((location == 1)? 0 : 1), y + i*((location == 1)? 1 : 0)));
+            ship.add( new Cell(x + i*((location == 1)? 0 : 1), y + i*((location == 1)? 1 : 0)));
         }
     }
 
     boolean outOfField(int bottom, int top) // них и верх
     {
-        for(Cell cell : cells)
+        for(Cell cell : ship)
         {
             if ((cell.getX() < bottom || cell.getX() > top) || (cell.getY() < bottom || cell.getY() > top))
             {
@@ -27,7 +28,7 @@ public class Ship {
 
     boolean contact(Ship sh)
     {
-        for(Cell cell : cells)
+        for(Cell cell : ship)
         {
             if (sh.contactCell(cell))
                 return true;
@@ -37,7 +38,7 @@ public class Ship {
 
     boolean contactCell(Cell ce)
     {
-        for(Cell cell : cells)
+        for(Cell cell : ship)
         {
             for (int i = -1; i < 2; i ++)
                 for (int j = -1; j < 2; j++)
@@ -49,7 +50,7 @@ public class Ship {
 
     boolean checkHit(int x, int y)
     {
-        for (Cell cell : cells) {
+        for (Cell cell : ship) {
             if (cell.checkHit(x, y))
                 return true;
         }
@@ -58,27 +59,18 @@ public class Ship {
 
     boolean live()
     {
-        for (Cell cell : cells) {
+        for (Cell cell : ship) {
             if (cell.live())
                 return true;
         }
         return false;
     }
 
-    boolean checkKill()
+    void paint (Graphics g, int cellSize)
     {
-        for (Cell cell : cells) {
-            if (cell.checkKill())
-                return true;
-        }
-        return false;
-    }
-
-    void paint (Graphics g, int cellSize, boolean hide)
-    {
-        for (Cell cell : cells)
+        for (Cell cell : ship)
         {
-            cell.paint(g,cellSize,hide);
+            cell.paint(g,cellSize);
         }
     }
 }
