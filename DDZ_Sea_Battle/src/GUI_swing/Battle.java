@@ -123,7 +123,7 @@ public class Battle extends JFrame {
 
     void start()
     {
-        ships = new Ships(10, WINDOW_SIZE, false);
+        ships = new Ships(10, CELL_SIZE, true);
         shots = new Shots(CELL_SIZE);
         board.setText("New Game");
         gameOver = false;
@@ -144,10 +144,9 @@ public class Battle extends JFrame {
                 g.drawLine(i*cellSize, 0, i*cellSize, 10*cellSize);
             }
 
-            if (cellSize == CELL_SIZE) {
+
                 shots.paint(g);
                 ships.paint(g);
-            }
         }
     }
 
