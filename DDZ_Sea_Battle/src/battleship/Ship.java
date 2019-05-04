@@ -4,7 +4,6 @@ import java.awt.*;
 
 public class Ship {
     private ArrayList<Cell> ship;
-
     Ship(int x, int y, int lenght, int location)  // location - положение корабля(направление)
     {
         ship = new ArrayList<>();

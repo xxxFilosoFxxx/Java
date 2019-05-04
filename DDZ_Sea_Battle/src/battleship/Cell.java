@@ -30,14 +30,10 @@ public class Cell {
         return color != Color.red;
     }
 
-    boolean checkKill() // понадобиться далее
+    /*boolean checkKill() // понадобиться далее
     {
-        if (this.color == Color.red)
-        {
-            return true;
-        }
-        return false;
-    }
+        return this.color == Color.red;
+    }*/
 
     void paint(Graphics g, int cellSize)  // скрывает корабли для человека
     {

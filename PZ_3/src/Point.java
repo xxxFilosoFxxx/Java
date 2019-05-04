@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class Point {
+
     private double x, y;
     private List<Point> list_Point = new ArrayList<>();
     Scanner in = new Scanner(System.in);
@@ -25,7 +26,6 @@ public class Point {
     {
         return this.y;
     }
-
 
     @Override
     public String toString() {
@@ -84,5 +84,6 @@ public class Point {
         get_point_max();
         Collections.reverse(list_Point);
     }
+
 }
 
