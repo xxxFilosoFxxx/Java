@@ -70,13 +70,7 @@ public class Point {
 
     public void get_point_max() {
         System.out.println("Список точек в порадяке возрастания по X: ");
-        list_Point.sort(new Comparator<Point>() {
-            @Override
-            public int compare(Point o1, Point o2) {
-                return (int) o1.getX() - (int) o2.getX();
-            }
-        });
-
+        list_Point.sort(Comparator.comparing(Point::getX));
     }
 
     public void get_point_min() {

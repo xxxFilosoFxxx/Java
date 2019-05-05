@@ -63,7 +63,6 @@ public class Circle {
         {
             System.out.println(c);
         }
-
     }
 
     public void remove(){
@@ -82,13 +81,7 @@ public class Circle {
 
     public void get_circle_max() {
         System.out.println("Список точек в порадяке возрастания по X: ");
-        list_Circle.sort(new Comparator<Circle>() {
-            @Override
-            public int compare(Circle o1, Circle o2) {
-                return  o1.getRad() -  o2.getRad();
-            }
-        });
-
+        list_Circle.sort(Comparator.comparing(Circle::get_x));
     }
 
     public void get_circle_min() {
@@ -110,6 +103,4 @@ public class Circle {
            }
         }
     }
-
-
 }
