@@ -1,24 +1,27 @@
 package battleship;
+
 import java.awt.*;
 
 public class Cell {
     private int x, y;
     public Color color;
 
-    Cell(int x, int y)
-    {
+    Cell(int x, int y) {
         this.x = x;
         this.y = y;
         color = Color.gray;
     }
 
-    int getX() { return this.x; }
-    int getY() { return this.y; }
+    int getX() {
+        return this.x;
+    }
 
-    boolean checkHit(int x, int y)
-    {
-        if (this.x == x && this.y == y )
-        {
+    int getY() {
+        return this.y;
+    }
+
+    boolean checkHit(int x, int y) {
+        if (this.x == x && this.y == y) {
             color = Color.red; //TODO red or yellow
             return true;
         }
@@ -37,10 +40,9 @@ public class Cell {
 
     void paint(Graphics g, int cellSize)  // скрывает корабли для человека
     {
-        if (color == Color.red)
-        {
+        if (color == Color.red) {
             g.setColor(color);
-            g.fill3DRect(x*cellSize + 1, y*cellSize + 1, cellSize - 2, cellSize -2, true);
+            g.fill3DRect(x * cellSize + 1, y * cellSize + 1, cellSize - 2, cellSize - 2, true);
         }
     }
 }

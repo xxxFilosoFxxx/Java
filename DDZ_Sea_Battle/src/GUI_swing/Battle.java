@@ -1,4 +1,5 @@
 package GUI_swing;
+
 import battleship.*;
 
 import java.awt.*;
@@ -13,7 +14,7 @@ import java.util.*;
 
 public class Battle extends JFrame {
     final int WINDOW_SIZE = 500;
-    final int CELL_SIZE = WINDOW_SIZE/10;
+    final int CELL_SIZE = WINDOW_SIZE / 10;
 
     JTextArea board;
     Canvas field; //поле
@@ -23,19 +24,17 @@ public class Battle extends JFrame {
     boolean gameOver; // проверка, что кораблей больше не осталось
 
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         new Battle();
     }
 
-    Battle()
-    {
+    Battle() {
         setTitle("Game BattleShip");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
 
         field = new Canvas();
-        field.setPreferredSize(new Dimension(WINDOW_SIZE,WINDOW_SIZE));
+        field.setPreferredSize(new Dimension(WINDOW_SIZE, WINDOW_SIZE));
         field.setBackground(Color.white);
 
         Border lineBorder = BorderFactory.createLineBorder(Color.blue);
@@ -45,16 +44,13 @@ public class Battle extends JFrame {
             @Override
             public void mouseReleased(MouseEvent e) {
                 super.mouseReleased(e);
-                int x = e.getX()/CELL_SIZE;
-                int y = e.getY()/CELL_SIZE;
+                int x = e.getX() / CELL_SIZE;
+                int y = e.getY() / CELL_SIZE;
 
-                if (e.getButton() == MouseEvent.BUTTON1 && !gameOver)
-                {
-                    if(!shots.hitAgain(x,y))
-                    {
-                        shots.add(x,y,true);
-                        if (ships.checkHit(x,y))
-                        {
+                if (e.getButton() == MouseEvent.BUTTON1 && !gameOver) {
+                    if (!shots.hitAgain(x, y)) {
+                        shots.add(x, y, true);
+                        if (ships.checkHit(x, y)) {
                             board.append("\nYou Hit");
                             if (!ships.checkLive()) {
                                 board.append("\nYou Won");
@@ -66,9 +62,8 @@ public class Battle extends JFrame {
                         board.setCaretPosition(board.getText().length());
                     }
                 }
-                if (e.getButton() == MouseEvent.BUTTON3)
-                {
-                    Shot lable = shots.getLabel(x,y);
+                if (e.getButton() == MouseEvent.BUTTON3) {
+                    Shot lable = shots.getLabel(x, y);
                     if (lable != null)
                         shots.removeLabel(lable);
                     else
@@ -118,8 +113,7 @@ public class Battle extends JFrame {
         start();
     }
 
-    void start()
-    {
+    void start() {
         random = new Random();
         ships = new Ships(10, CELL_SIZE);
         shots = new Shots(CELL_SIZE);
@@ -127,21 +121,17 @@ public class Battle extends JFrame {
         gameOver = false;
     }
 
-    class Canvas extends JPanel
-    {
+    class Canvas extends JPanel {
         @Override
-        public void paint(Graphics g)
-        {
+        public void paint(Graphics g) {
             super.paint(g);
-            int cellSize = (int)getSize().getWidth() / 10;
+            int cellSize = (int) getSize().getWidth() / 10;
             g.setColor(Color.darkGray);
-            for (int i = 1; i < 10; i++)
-            {
-                g.drawLine(0, i*cellSize, 10 * cellSize, i*cellSize );
-                g.drawLine(i*cellSize, 0, i*cellSize, 10*cellSize);
+            for (int i = 1; i < 10; i++) {
+                g.drawLine(0, i * cellSize, 10 * cellSize, i * cellSize);
+                g.drawLine(i * cellSize, 0, i * cellSize, 10 * cellSize);
             }
-            if (cellSize == CELL_SIZE)
-            {
+            if (cellSize == CELL_SIZE) {
                 shots.paint(g);
                 ships.paint(g);
             }
