@@ -2,7 +2,6 @@ package battleship;
 
 import java.awt.*;
 
-
 public class Shot {
     private int x, y;
     private boolean shot;
@@ -33,6 +32,5 @@ public class Shot {
             g.drawOval(x * cellSize + cellSize / 2 - 3, y * cellSize + cellSize / 2 - 3, 8, 8);
         }
     }
-
 
 }

@@ -14,7 +14,7 @@ public class Ship {
         }
     }
 
-    boolean outOfField(int bottom, int top) // них и верх
+    boolean outOfField(int bottom, int top) // низ и верх
     {
         for (Cell cell : ship) {
             if ((cell.getX() < bottom || cell.getX() > top) || (cell.getY() < bottom || cell.getY() > top)) {
