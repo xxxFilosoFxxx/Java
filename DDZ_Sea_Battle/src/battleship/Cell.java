@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Cell {
     private int x, y;
-    public Color color;
+    private Color color;
 
     Cell(int x, int y) {
         this.x = x;
@@ -38,7 +38,7 @@ public class Cell {
         return this.color == Color.red;
     }*/
 
-    void paint(Graphics g, int cellSize)  // скрывает корабли для человека
+    void paint(Graphics g, int cellSize)
     {
         if (color == Color.red) {
             g.setColor(color);
