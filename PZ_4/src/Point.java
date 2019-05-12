@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 public class Point {
 
@@ -79,5 +80,40 @@ public class Point {
         Collections.reverse(list_Point);
     }
 
+    public void save_point_change() throws IOException {
+        FileWriter file = new FileWriter("../Java/PZ_4/src/Point.txt");
+
+        for (Point p: list_Point)
+        {
+            file.write(p.getX() + " " + p.getY() + "\n");
+        }
+        file.close();
+    }
+
+    public void save_point_add() throws IOException {
+        FileWriter file = new FileWriter("../Java/PZ_4/src/Point.txt", true);
+
+        for (Point p: list_Point)
+        {
+            file.write(p.getX() + " " + p.getY() + "\n");
+        }
+        file.close();
+    }
+
+    public void write_point() throws IOException
+    {
+        FileReader file= new FileReader("../Java/PZ_4/src/Point.txt");
+        Scanner scan = new Scanner(file);
+
+        while (scan.hasNextLine()) {
+            String[] str = new String(scan.nextLine()).split(" ");
+            double val_x = Double.parseDouble(str[0]);
+            double val_y = Double.parseDouble(str[1]);
+            Point val_p = new Point(val_x,val_y);
+            list_Point.add(val_p);
+        }
+
+        file.close();
+    }
 }
 

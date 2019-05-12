@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 public class Circle {
     private Point p;
@@ -93,14 +94,53 @@ public class Circle {
     public void check(){
         for (Circle c:list_Circle)
         {
-           if (Math.pow(c.get_x() - p.getX(), 2) + Math.pow(c.get_y() - p.getY(), 2) < Math.pow(c.getRad(), 2))
-           {
-               p.get_point();
-           }
-           else
-           {
-               System.out.println("Точек в окружности нет!");
-           }
+            if (Math.pow(c.get_x() - p.getX(), 2) + Math.pow(c.get_y() - p.getY(), 2) < Math.pow(c.getRad(), 2))
+            {
+                p.get_point();
+            }
+            else
+            {
+                System.out.println("Точек в окружности нет!");
+            }
         }
+    }
+
+    public void save_circle_change() throws IOException {
+        FileWriter file = new FileWriter("../Java/PZ_4/src/Circle.txt");
+
+        for (Circle c: list_Circle)
+        {
+            file.write(c.get_x() + " " + c.get_y() + " " + c.getRad() + "\n");
+        }
+
+        file.close();
+    }
+
+    public void save_circle_add() throws IOException {
+        FileWriter file = new FileWriter("../Java/PZ_4/src/Circle.txt", true);
+
+        for (Circle c: list_Circle)
+        {
+            file.write(c.get_x() + " " + c.get_y() + " " + c.getRad() + "\n");
+        }
+
+        file.close();
+    }
+
+    public void write_circle() throws IOException
+    {
+        FileReader file= new FileReader("../Java/PZ_4/src/Circle.txt");
+        Scanner scan = new Scanner(file);
+
+        while (scan.hasNextLine()) {
+            String[] str = new String(scan.nextLine()).split(" ");
+            double val_x = Double.parseDouble(str[0]);
+            double val_y = Double.parseDouble(str[1]);
+            int val_rad = Integer.parseInt(str[2]);
+            Circle val_c = new Circle(val_x,val_y,val_rad);
+            list_Circle.add(val_c);
+        }
+
+        file.close();
     }
 }
