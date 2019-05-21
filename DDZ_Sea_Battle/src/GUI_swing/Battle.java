@@ -91,7 +91,7 @@ public class Battle extends JFrame {
         });
 
         board = new JTextArea();
-        board.setEditable(false);
+        board.setEditable(false);   // запрет на ввод текста пользователю
         JScrollPane scroll = new JScrollPane(board);
 
         JPanel panel = new JPanel();
@@ -119,8 +119,8 @@ public class Battle extends JFrame {
         shots = new Shots(CELL_SIZE);
         board.setText("New Game");
         gameOver = false;
-    }
 
+}
     class Canvas extends JPanel {
         @Override
         public void paint(Graphics g) {
