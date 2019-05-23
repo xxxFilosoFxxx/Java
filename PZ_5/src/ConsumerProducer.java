@@ -51,6 +51,7 @@ public class ConsumerProducer  {
             catch (InterruptedException ex)
             {
                 System.err.println(ex.getMessage());
+                threadConsumer.interrupt();
             }
         }
     }
@@ -73,7 +74,6 @@ public class ConsumerProducer  {
             catch (InterruptedException ex)
             {
                 System.err.println(ex.getMessage());
-                //TODO
             }
         }
     }
